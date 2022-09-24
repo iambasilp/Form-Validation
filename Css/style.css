@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;1,300;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f0f2f5;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+.header {
+  background-color: rgb(11, 107, 250);
+  text-align: center;
+  padding: 1rem 0rem;
+  color: white;
+  text-transform: uppercase;
+}
+.form {
+  padding: 2rem 2rem 1rem 2rem;
+}
+.form .input-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.form .input-container input {
+  width: 400px;
+  outline: none;
+  padding: 0.8rem 0rem 0.8rem 15px;
+  border-radius: 5px;
+  border: 1px solid #ccd0d5;
+  font-size: 1rem;
+  text-transform: capitalize;
+
+}
+.placeholder {
+  position: absolute;
+  top: 13px;
+  font-size: 14px;
+  left: 14px;
+  color: #474747;
+  pointer-events: none;
+  transition: all ease 0.3s;
+}
+.form .input-container input:focus + .placeholder,
+.form .input-container input:not(:placeholder-shown) + .placeholder {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  font-size: 12px;
+  padding: 0px 5px;
+  background-color: #fff;
+}
+.form .btn {
+  background: rgb(252, 96, 122);
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  outline: none;
+  display: block;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-size: 19px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: black;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  transition: all ease 0.3s;
+}
+.form .btn:hover {
+  background: red;
+  color: white;
+}
+.input-container.sucess input {
+  border-color: green;
+}
+.input-container.error input {
+  border: red;
+}
+.input-container i {
+  position: absolute;
+  right: 12px;
+  top: 17%;
+  visibility: hidden;
+}
+.input-container.sucess i.ri-checkbox-circle-fill{
+    visibility: visible;
+    color: green;
+}
+.input-container.error i.ri-error-warning-fill{
+    visibility: visible;
+    color: red;
+}
+
+.input-container small{
+    color: red;
+    position: absolute;
+    bottom: -21px;
+    left: 4px;
+    visibility: hidden;
+}
+.input-container.error small {
+    visibility: visible;
+}
