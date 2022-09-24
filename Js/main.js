@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
-const usrename = document.getElementById("username");
+const username = document.getElementById("username");
 const email = document.getElementById("email");
-const phneNumber = document.getElementById("phonenumber");
+const phoneNumber = document.getElementById("phonenumber");
 const password = document.getElementById("password");
 const cpassword = document.getElementById("cpassword");
 
@@ -13,21 +13,53 @@ form.addEventListener("submit", (event) => {
 
 // Define the validation function
 const validate = () => {
-  const usrenameValue = usrename.value().trim();
+  const usernameValue = username.value().trim();
   const emailValue = email.value().trim();
-  const phneNumberValue = phneNumber.value().trim();
+  const phoneNumberValue = phoneNumber.value().trim();
   const passwordValue = password.value().trim();
   const cpasswordValue = cpassword.value().trim();
 
+  const isEmail = (emailValue)=>{
+     var atSymbol = emailValue.indexOf("@")
+     if(atSymbol < 1){
+        return false;
+     }
+     var dot = emailValue.lastIndexOf('.')
+     if(dot <= atSymbol +2){
+        return false;   
+     }
+     if(dot === emailValue.length - 1){
+        return false;
+     }
+     return true;
+  }
+  // basilxg321@gmail.com 16 === -1
+
+
+
   // validate username
-  if(usrenameValue === ""){
-    setErrorMsg(usrenameValue, 'username cannot be blank')
-  }else if(usrenameValue.length <= 2){
-    setErrorMsg(usrenameValue, 'username min 3 char')
+  if(usernameValue === ""){
+    setErrorMsg(username,'username cannot be blank')
+  }else if(usernameValue.length <= 2){
+    setErrorMsg(username,'username min 3 char')
   }else{
-    setSucessMsg(usrenameValue)
+    setSucessMsg(username)
+  }
+  
+  // validate email
+  if(emailValue === ""){
+    setErrorMsg(email, 'username cannot be blank')
+  }else if(isEmail(emailValue)){
+    setErrorMsg(email, 'username min 3 char')
+  }else{
+    setSucessMsg(email)
   }
 
   // 
 };
 
+function setErrorMsg(input, errormsgs){
+    const inputContainer = input.parentElement;
+    const small = inputContainer.querySelector('small')
+    small.innerText = errormsgs
+}
