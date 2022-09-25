@@ -11,55 +11,121 @@ form.addEventListener("submit", (event) => {
   validate();
 });
 
-// Define the validation function
-const validate = () => {
-  const usernameValue = username.value().trim();
-  const emailValue = email.value().trim();
-  const phoneNumberValue = phoneNumber.value().trim();
-  const passwordValue = password.value().trim();
-  const cpasswordValue = cpassword.value().trim();
-
-  const isEmail = (emailValue)=>{
-     var atSymbol = emailValue.indexOf("@")
-     if(atSymbol < 1){
-        return false;
-     }
-     var dot = emailValue.lastIndexOf('.')
-     if(dot <= atSymbol +2){
-        return false;   
-     }
-     if(dot === emailValue.length - 1){
-        return false;
-     }
-     return true;
+// for final data validatoin
+const sucessmsg = () => {
+  let inputContainer = document.getElementsByClassName("input-container");
+  var count = inputContainer.length - 1;
+  for (let i = 0; i < inputContainer.length; i++) {
+    if (inputContainer[i].className === "input-container sucess") {
+      var sRate = 0 + i;
+      sendDate(count, sRate);
+    } else {
+      return false;
+    }
   }
-  // basilxg321@gmail.com 16 === -1
-
-
-
-  // validate username
-  if(usernameValue === ""){
-    setErrorMsg(username,'username cannot be blank')
-  }else if(usernameValue.length <= 2){
-    setErrorMsg(username,'username min 3 char')
-  }else{
-    setSucessMsg(username)
-  }
-  
-  // validate email
-  if(emailValue === ""){
-    setErrorMsg(email, 'username cannot be blank')
-  }else if(isEmail(emailValue)){
-    setErrorMsg(email, 'username min 3 char')
-  }else{
-    setSucessMsg(email)
-  }
-
-  // 
 };
 
-function setErrorMsg(input, errormsgs){
-    const inputContainer = input.parentElement;
-    const small = inputContainer.querySelector('small')
-    small.innerText = errormsgs
+const sendDate = (sRate, count, userValue) => {
+  if (sRate === count) {
+    // swal('Welcome','Regsitration Successful','sucess');
+    swal(`Welcome ${userValue}`, "Registration Successful", "success");
+    document.querySelector(".btn").style.backgroundColor = "green";
+    location.href = `demo.html?username = ${userValue}`;
+  } else {
+    swal(`Try again! ${username.value}`, "Registration Failed", "error");
+    document.querySelector(".btn").style.backgroundColor = "red";
+  }
+};
+// more email validation
+const isEmail = (emailValue) => {
+  var atSymbol = emailValue.indexOf("@");
+  if (atSymbol < 1) return false;
+  var dot = emailValue.lastIndexOf(".");
+  if (dot <= atSymbol + 2) return false;
+  if (dot === emailValue.length - 1) return false;
+  return true;
+};
+// Define the validation function
+const validate = () => {
+  const userValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const phoneValue = phoneNumber.value.trim();
+  const passwordValue = password.value.trim();
+  const cpasswordValue = cpassword.value.trim();
+
+  // Validate username
+  if (userValue === "") {
+    setErrormsg(username, "username cannot be blank");
+  } else if (userValue.length <= 2) {
+    setErrormsg(username, "username minimum 3 character");
+  } else {
+    setSuccessmsg(username);
+  }
+
+  // validate email
+  if (emailValue === "") {
+    setErrormsg(email, "email cannot be blank");
+  } else if (!isEmail(emailValue)) {
+    setErrormsg(email, "Not valid Email");
+  } else {
+    setSuccessmsg(email);
+  }
+
+  // Validate phonenumber
+  if (phoneValue === "") {
+    setErrormsg(phoneNumber, "username cannot be blank");
+  } else if (phoneValue.length != 10) {
+    setErrormsg(phoneNumber, "Not a valid phone number");
+  } else {
+    setSuccessmsg(phoneNumber);
+  }
+
+  // Validate Password
+    if (passwordValue === "") {
+      setErrormsg(password, "password cannot be blank");
+    } else if (passwordValue.length <= 5) {
+      setErrormsg(password, "Minimum 6 character");
+    } else {
+      setSuccessmsg(password);
+    }
+
+
+  // Validate Cpassword
+  if (cpasswordValue === "") {
+    setErrormsg(cpassword, "confirm password cannot be blank");
+  } else if (passwordValue !== cpasswordValue) {
+    setErrormsg(cpassword, "Password are not matching");
+  } else {
+    setSuccessmsg(cpassword);
+  }
+  sucessmsg();
+};
+
+function setErrormsg(input, errormsgs) {
+  const inputContainer = input.parentElement;
+  const small = inputContainer.querySelector("small");
+  inputContainer.className = "input-container error";
+  small.innerText = errormsgs;
 }
+
+function setSuccessmsg(input) {
+  const inputContainer = input.parentElement;
+  inputContainer.className = "input-container sucess";
+}
+
+// password show and hide
+const showIcon = document.querySelector(".showpwd");
+const pwdInput = document.getElementById("password");
+
+showIcon.addEventListener("click", () => {
+  if (pwdInput.type === "password") {
+    pwdInput.type = "text";
+    showIcon.classList.replace("ri-eye-fill", "ri-eye-off-fill");
+  } else {
+    pwdInput.type = "password";
+    showIcon.classList.replace("ri-eye-off-fill", "ri-eye-fill");
+  }
+
+ 
+})
+

@@ -1,57 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Form Validation</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="./Css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Css/style.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
     <script defer src="./Js/main.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h2>REGISTRATION FORM</h2>
+      <div class="header">
+        <h2>REGISTRATION FORM</h2>
+      </div>
+      <form action="post" class="form" id="form">
+        <div class="input-container">
+          <input type="text" name="username" id="username" placeholder=" " />
+          <label class="placeholder">Username</label>
+          <i class="ri-checkbox-circle-fill"></i>
+          <i class="ri-error-warning-fill"></i>
+          <small>Error Message</small>
         </div>
-        <form class="form" id="form">
-            <div class="input-container">
-                <input type="text" name="" id="username" placeholder=" ">
-                <label class="placeholder">Username</label>
-                <i class="ri-checkbox-circle-fill"></i>
-                <i class="ri-error-warning-fill"></i>
-                <small>Error Message</small>
-            </div>
-            <div class="input-container">
-                <input type="email" name="email" id="email" placeholder=" ">
-                <label class="placeholder">Email</label>
-                <i class="ri-checkbox-circle-fill"></i>
-                <i class="ri-error-warning-fill"></i>
-                <small>Error Message</small>
-            </div>
-            <div class="input-container">
-                <input type="tel" name="phonenumber" id="phonenumber" placeholder=" ">
-                <label class="placeholder">Phonenumber</label>
-                <i class="ri-checkbox-circle-fill"></i>
-                <i class="ri-error-warning-fill"></i>
-                <small>Error Message</small>
-            </div>
-            <div class="input-container">
-                <input type="password" name="password" id="password" placeholder=" ">
-                <label class="placeholder">Password</label>
-                <i class="ri-checkbox-circle-fill"></i>
-                <i class="ri-error-warning-fill"></i>
-                <small>Error Message</small>
-            </div>
-            <div class="input-container">
-                <input type="password" name="cpassword" id="cpassword" placeholder=" ">
-                <label class="placeholder">Confirm Password</label>
-                <i class="ri-checkbox-circle-fill"></i>
-                <i class="ri-error-warning-fill"></i>
-                <small>Error Message</small>
-            </div>
-            <input type="submit" value="Submit" class="btn">
-        </form>
+        <div class="input-container">
+          <input type="email" name="email" id="email" placeholder=" " />
+          <label class="placeholder">Email</label>
+          <i class="ri-checkbox-circle-fill"></i>
+          <i class="ri-error-warning-fill"></i>
+          <small>Error Message</small>
+        </div>
+        <div class="input-container">
+          <input
+            type="tel"
+            name="phonenumber"
+            id="phonenumber"
+            placeholder=" "
+          />
+          <label class="placeholder">Phonenumber</label>
+          <i class="ri-checkbox-circle-fill"></i>
+          <i class="ri-error-warning-fill"></i>
+          <small>Error Message</small>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=" "
+          />
+          <label class="placeholder">Password</label>
+          <i class="ri-checkbox-circle-fill"></i>
+          <i class="ri-error-warning-fill"></i>
+          <small>Error Message</small>
+          <i class="ri-eye-fill showpwd"></i>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            name="password"
+            id="cpassword"
+            placeholder=" "
+          />
+          <label class="placeholder">Confirm Password</label>
+          <i class="ri-checkbox-circle-fill"></i>
+          <i class="ri-error-warning-fill"></i>
+          <small>Error Message</small>
+          
+        </div>
+        <input type="submit" value="Submit" class="btn" />
+      </form>
     </div>
-</body>
+  </body>
 </html>

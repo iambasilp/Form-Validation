@@ -15,8 +15,10 @@ body {
   align-items: center;
 }
 .container {
+  border-radius: 10px;
+  overflow: hidden;
   background: #fff;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 18px 16px rgb(0 0 0 / 12%);
 }
 .header {
   background-color: rgb(11, 107, 250);
@@ -39,8 +41,6 @@ body {
   border-radius: 5px;
   border: 1px solid #ccd0d5;
   font-size: 1rem;
-  text-transform: capitalize;
-
 }
 .placeholder {
   position: absolute;
@@ -61,7 +61,7 @@ body {
   background-color: #fff;
 }
 .form .btn {
-  background: rgb(252, 96, 122);
+  background-color: #42b72a;
   width: 100%;
   padding: 0.8rem 1rem;
   border: none;
@@ -72,7 +72,7 @@ body {
   font-size: 19px;
   text-transform: capitalize;
   font-weight: 600;
-  color: black;
+  color: white;
   outline: none;
   display: flex;
   justify-content: center;
@@ -81,37 +81,60 @@ body {
   transition: all ease 0.3s;
 }
 .form .btn:hover {
-  background: red;
+  background-color: #349c1f;
   color: white;
 }
 .input-container.sucess input {
   border-color: green;
 }
 .input-container.error input {
-  border: red;
+  border-color: red;
 }
 .input-container i {
   position: absolute;
   right: 12px;
-  top: 17%;
+  top: 32%;
   visibility: hidden;
 }
-.input-container.sucess i.ri-checkbox-circle-fill{
-    visibility: visible;
-    color: green;
+
+.input-container.sucess i.ri-checkbox-circle-fill {
+  visibility: visible;
+  color: green;
 }
-.input-container.error i.ri-error-warning-fill{
-    visibility: visible;
-    color: red;
+.input-container.error i.ri-error-warning-fill {
+  visibility: visible;
+  color: red;
+}
+.input-container i.showpwd {
+  visibility: visible;
+  right: 13px;
+  color: #474747;
+  transition: all ease 0.2s;
 }
 
-.input-container small{
-    color: red;
-    position: absolute;
-    bottom: -21px;
-    left: 4px;
-    visibility: hidden;
+.input-container.error i.showpwd{
+  color: red;
+  right: 35px;
+}
+.input-container.sucess i.showpwd{
+  color: green;
+  right: 35px;
+}
+.input-container small {
+  color: red;
+  position: absolute;
+  bottom: -21px;
+  left: 4px;
+  visibility: hidden;
 }
 .input-container.error small {
-    visibility: visible;
+  visibility: visible;
+}
+@media (max-width: 600px) {
+  .container{
+    
+  }
+  input {
+    max-width: 370px;
+  }
 }
