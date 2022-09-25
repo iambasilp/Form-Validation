@@ -28,9 +28,9 @@ const sucessmsg = () => {
 const sendDate = (sRate, count, userValue) => {
   if (sRate === count) {
     // swal('Welcome','Regsitration Successful','sucess');
-    swal(`Welcome ${userValue}`, "Registration Successful", "success");
+    swal(`Welcome ${username.value}`, "Registration Successful", "success");
     document.querySelector(".btn").style.backgroundColor = "green";
-    location.href = `demo.html?username = ${userValue}`;
+    location.href = `demo.html?username = ${username.value}`;
   } else {
     swal(`Try again! ${username.value}`, "Registration Failed", "error");
     document.querySelector(".btn").style.backgroundColor = "red";

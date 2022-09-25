@@ -130,11 +130,4 @@ body {
 .input-container.error small {
   visibility: visible;
 }
-@media (max-width: 600px) {
-  .container{
-    
-  }
-  input {
-    max-width: 370px;
-  }
-}
+
