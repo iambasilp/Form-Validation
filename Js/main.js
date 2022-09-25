@@ -30,7 +30,7 @@ const sendDate = (sRate, count, userValue) => {
     // swal('Welcome','Regsitration Successful','sucess');
     swal(`Welcome ${username.value}`, "Registration Successful", "success");
     document.querySelector(".btn").style.backgroundColor = "green";
-    location.href = `demo.html?username = ${username.value}`;
+    location.href = `https://www.google.com`;
   } else {
     swal(`Try again! ${username.value}`, "Registration Failed", "error");
     document.querySelector(".btn").style.backgroundColor = "red";
