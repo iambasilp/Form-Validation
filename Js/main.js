@@ -18,14 +18,14 @@ const sucessmsg = () => {
   for (let i = 0; i < inputContainer.length; i++) {
     if (inputContainer[i].className === "input-container sucess") {
       var sRate = 0 + i;
-      sendDate(count, sRate);
+      sendData(count, sRate);
     } else {
       return false;
     }
   }
 };
 
-const sendDate = (sRate, count, userValue) => {
+const sendData = (sRate, count) => {
   if (sRate === count) {
     // swal('Welcome','Regsitration Successful','sucess');
     swal(`Welcome ${username.value}`, "Registration Successful", "success");
@@ -38,13 +38,12 @@ const sendDate = (sRate, count, userValue) => {
 };
 // more email validation
 const isEmail = (emailValue) => {
-  var atSymbol = emailValue.indexOf("@");
-  if (atSymbol < 1) return false;
-  var dot = emailValue.lastIndexOf(".");
-  if (dot <= atSymbol + 2) return false;
-  if (dot === emailValue.length - 1) return false;
-  return true;
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailValue)) {
+    return true;
+  }
+  return false;
 };
+
 // Define the validation function
 const validate = () => {
   const userValue = username.value.trim();
@@ -81,14 +80,13 @@ const validate = () => {
   }
 
   // Validate Password
-    if (passwordValue === "") {
-      setErrormsg(password, "password cannot be blank");
-    } else if (passwordValue.length <= 5) {
-      setErrormsg(password, "Minimum 6 character");
-    } else {
-      setSuccessmsg(password);
-    }
-
+  if (passwordValue === "") {
+    setErrormsg(password, "password cannot be blank");
+  } else if (passwordValue.length <= 5) {
+    setErrormsg(password, "Minimum 6 character");
+  } else {
+    setSuccessmsg(password);
+  }
 
   // Validate Cpassword
   if (cpasswordValue === "") {
@@ -125,7 +123,4 @@ showIcon.addEventListener("click", () => {
     pwdInput.type = "password";
     showIcon.classList.replace("ri-eye-off-fill", "ri-eye-fill");
   }
-
- 
-})
-
+});
