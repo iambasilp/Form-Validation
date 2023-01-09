@@ -9,16 +9,32 @@ const cpassword = document.getElementById("cpassword");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   validate();
+
 });
 
 // for final data validatoin
-const sucessmsg = () => {
+const sucessmsg = (data) => {
   let inputContainer = document.getElementsByClassName("input-container");
   var count = inputContainer.length - 1;
   for (let i = 0; i < inputContainer.length; i++) {
     if (inputContainer[i].className === "input-container sucess") {
       var sRate = 0 + i;
       sendData(count, sRate);
+
+      fetch("https://form-641d5-default-rtdb.firebaseio.com/.json", {
+
+      // Adding method type
+      method: "POST",
+    
+      // Adding body or contents to send
+      body: JSON.stringify(data),
+    
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+
     } else {
       return false;
     }
@@ -30,7 +46,7 @@ const sendData = (sRate, count) => {
     // swal('Welcome','Regsitration Successful','sucess');
     swal(`Welcome ${username.value}`, "Registration Successful", "success");
     document.querySelector(".btn").style.backgroundColor = "green";
-    location.href = `https://www.google.com`;
+    location.href = `https://github.com/iambasilp`;
   } else {
     swal(`Try again! ${username.value}`, "Registration Failed", "error");
     document.querySelector(".btn").style.backgroundColor = "red";
@@ -96,7 +112,14 @@ const validate = () => {
   } else {
     setSuccessmsg(cpassword);
   }
-  sucessmsg();
+  sucessmsg({
+    username: userValue,
+    email: emailValue,
+    Number: phoneValue,
+    password: passwordValue
+  });
+
+
 };
 
 function setErrormsg(input, errormsgs) {

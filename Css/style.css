@@ -131,3 +131,14 @@ body {
   visibility: visible;
 }
 
+footer{
+  color: rgb(175, 174, 174);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: .8rem;
+}
+footer a{
+  color: rgb(11, 107, 250);
+  
+  font-weight:500;
+}
